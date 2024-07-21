@@ -81,7 +81,7 @@ For more detailed information about the blog project, you can refer to the [Blog
     - **Set the database URL and page limit in your `.env` file:**
 
         ```bash
-        BLOG_DB_CONFIG=postgres://username:password@localhost/blog
+        BLOG_DB_CONFIG=postgres://username:password@localhost/db_name
         PAGE_LIMIT=10
         ```
 
