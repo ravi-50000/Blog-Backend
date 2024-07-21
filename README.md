@@ -81,7 +81,7 @@ For more detailed information about the blog project, you can refer to the [Blog
     - **Set the database URL and page limit in your `.env` file:**
 
         ```bash
-        BLOG_DB_CONFIG=postgres://username:password@localhost/blog
+        BLOG_DB_CONFIG=postgres://username:password@localhost/db_name
         PAGE_LIMIT=10
         ```
 
@@ -357,7 +357,24 @@ For more detailed information about the blog project, you can refer to the [Blog
         "modified": "2024-07-21T05:20:05.409251Z"
     }
     ```
-    
+
+
+## Postman Collection
+
+To test the API endpoints more efficiently, you can use the Postman collection provided.
+
+1. **Download the Postman collection:**
+   - [Download Postman Collection](https://github.com/ravi-50000/Blog-Backend/blob/main/Blog.postman_collection.json)
+
+2. **Import the Postman collection into Postman:**
+   - Open Postman.
+   - Click on the "Import" button (located in the top-left corner).
+   - Choose the "File" tab.
+   - Upload the `postmancollection.json` file you downloaded.
+   - Click "Import" to add the collection to your Postman workspace.
+
+The collection includes pre-configured requests for all the endpoints mentioned above, allowing you to quickly test and interact with the API.
+
 
 ## Additional Notes
 
