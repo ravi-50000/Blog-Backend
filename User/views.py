@@ -12,6 +12,18 @@ from django.conf import settings
 logger = logging.getLogger(settings.DEBUG_LOGGER_DJANGO)
 
 class Register(APIView):
+    """
+    Register a new user.
+
+    POST /register/
+    Request Body:
+    - username
+    - password
+    - email
+
+    Response:
+    - Message: 'Registered Successfully'
+    """
     def post(self, request):
         serializer = RegisterRequestSerializer(data=request.data)
         try:
@@ -25,6 +37,18 @@ class Register(APIView):
 
 
 class Login(APIView):
+    """
+    Log in and get JWT tokens.
+
+    POST /signin/
+    Request Body:
+    - username
+    - password
+
+    Response:
+    - access: Access token
+    - refresh: Refresh token
+    """
     def post(self, request):
         serializer = LoginRequestSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -57,6 +81,16 @@ class Login(APIView):
 
 
 class LogOut(APIView):
+    """
+    Log out by blacklisting the refresh token.
+
+    POST /logout/
+    Request Body:
+    - refresh_token
+
+    Response:
+    - message: 'Logged out successfully'
+    """
     permission_classes = [IsAuthenticated]
      
     def post(self, request):
