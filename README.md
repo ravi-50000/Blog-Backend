@@ -17,6 +17,7 @@ For more detailed information about the blog project, you can refer to the [Blog
 - Django 4.x
 - Django REST Framework
 - PostgreSQL (or any other database supported by Django)
+- PgAdmin
 
 ### Installation
 
@@ -41,19 +42,62 @@ For more detailed information about the blog project, you can refer to the [Blog
     pip install -r req.txt
     ```
 
-4. **Set up the database:**
+4. **Set up PostgreSQL database using PgAdmin:**
+
+    - **Install PostgreSQL:** Follow the instructions for your operating system to install PostgreSQL.
+
+    - **Start PostgreSQL server:**
+
+        ```bash
+        pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
+        ```
+
+    - **Access PostgreSQL shell:**
+
+        ```bash
+        psql postgres
+        ```
+
+    - **Create a new database and user:**
+
+        ```sql
+        CREATE DATABASE db_name;
+        CREATE USER username WITH PASSWORD 'password';
+        GRANT ALL PRIVILEGES ON DATABASE blog TO username;
+        ```
+
+    - **Check the created databases:**
+
+        ```sql
+        \l
+        ```
+
+    - **Grant privileges on all tables in the schema:**
+
+        ```sql
+        GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO username;
+        ```
+
+    - **Set the database URL and page limit in your `.env` file:**
+
+        ```bash
+        BLOG_DB_CONFIG=postgres://username:password@localhost/blog
+        PAGE_LIMIT=10
+        ```
+
+5. **Set up the database:**
 
     ```bash
     python manage.py migrate
     ```
 
-5. **Create a superuser (for admin access):**
+6. **Create a superuser (for admin access):**
 
     ```bash
     python manage.py createsuperuser
     ```
 
-6. **Run the development server:**
+7. **Run the development server:**
 
     ```bash
     python manage.py runserver
