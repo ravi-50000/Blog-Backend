@@ -13,7 +13,7 @@ For more detailed information about the blog project, you can refer to the [Blog
 
 ### Prerequisites
 
-- Python 3.9+
+- Python 3+
 - Django 4.x
 - Django REST Framework
 - PostgreSQL (or any other database supported by Django)
@@ -31,14 +31,14 @@ For more detailed information about the blog project, you can refer to the [Blog
 2. **Create a virtual environment and activate it:**
 
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    python -m venv blogvenv
+    source blogvenv/bin/activate  # On Windows use `blogvenv\Scripts\activate`
     ```
 
 3. **Install the dependencies:**
 
     ```bash
-    pip install -r requirements.txt
+    pip install -r req.txt
     ```
 
 4. **Set up the database:**
